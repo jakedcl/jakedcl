@@ -79,13 +79,19 @@ export default async function Home() {
                     {/* Photo Carousel */}
                     <div className="w-full h-48 bg-gray-100 rounded-xl mb-3 overflow-hidden">
                       {project.photos && project.photos.length > 0 ? (
-                        <Image
-                          src={project.photos[0].asset.url}
-                          alt={project.photos[0].alt || 'Project image'}
-                          width={320}
-                          height={192}
-                          className="w-full h-full object-cover"
-                        />
+                        <div className="flex overflow-x-auto gap-2 h-full">
+                          {project.photos.map((photo, index) => (
+                            <div key={index} className="flex-shrink-0 w-48 h-full">
+                              <Image
+                                src={photo.asset.url}
+                                alt={photo.alt || `Project image ${index + 1}`}
+                                width={192}
+                                height={192}
+                                className="w-full h-full object-cover rounded-lg"
+                              />
+                            </div>
+                          ))}
+                        </div>
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-400">
                           No image
@@ -112,13 +118,19 @@ export default async function Home() {
                     {/* Photo Carousel */}
                     <div className="w-full h-48 bg-gray-100 rounded-xl mb-3 overflow-hidden">
                       {project.photos && project.photos.length > 0 ? (
-                        <Image
-                          src={project.photos[0].asset.url}
-                          alt={project.photos[0].alt || 'Project image'}
-                          width={320}
-                          height={192}
-                          className="w-full h-full object-cover"
-                        />
+                        <div className="flex overflow-x-auto gap-2 h-full">
+                          {project.photos.map((photo, index) => (
+                            <div key={index} className="flex-shrink-0 w-48 h-full">
+                              <Image
+                                src={photo.asset.url}
+                                alt={photo.alt || `Project image ${index + 1}`}
+                                width={192}
+                                height={192}
+                                className="w-full h-full object-cover rounded-lg"
+                              />
+                            </div>
+                          ))}
+                        </div>
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-400">
                           No image
