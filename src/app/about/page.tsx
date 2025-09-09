@@ -56,8 +56,8 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-2xl font-light mb-4 text-accent-green">Background</h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  I'm a web developer with a focus on frontend experiences. My journey 
-                  started with React and I've evolved to embrace Next.js for its powerful 
+                  I&apos;m a web developer with a focus on frontend experiences. My journey 
+                  started with React and I&apos;ve evolved to embrace Next.js for its powerful 
                   full-stack capabilities. I use Tailwind CSS for its utility-first approach 
                   that enables rapid development and clean, maintainable code.
                 </p>
@@ -154,9 +154,9 @@ export default function AboutPage() {
 
           {/* Call to Action */}
           <div className="text-center py-16 border-t border-gray-200">
-            <h2 className="text-2xl font-light mb-4">Let's create something together</h2>
+            <h2 className="text-2xl font-light mb-4">Let&apos;s create something together</h2>
             <p className="text-gray-600 mb-8">
-              I'm always interested in new projects and collaborations.
+              I&apos;m always interested in new projects and collaborations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 

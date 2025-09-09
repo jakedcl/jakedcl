@@ -1,5 +1,4 @@
 import { PortableTextBlock } from 'next-sanity'
-import { SanityImageSource } from '@sanity/image-url/lib/types'
 
 export interface SanityImage {
   _type: 'image'

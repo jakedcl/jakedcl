@@ -137,7 +137,7 @@ export default function ProjectsPage() {
           <div className="text-center py-16 border-t border-gray-200">
             <h2 className="text-2xl font-light mb-4">Want to collaborate?</h2>
             <p className="text-gray-600 mb-8">
-              I'm always interested in working on creative projects that push boundaries.
+              I&apos;m always interested in working on creative projects that push boundaries.
             </p>
             <Link 
               href="mailto:jakedcl73@gmail.com"
