@@ -1,103 +1,178 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { client } from '@/sanity/lib/client';
+import { projectsQuery } from '@/sanity/lib/queries';
+import { Project } from '@/types/sanity';
+import { PortableText } from 'next-sanity';
+import Image from 'next/image';
 
-export default function Home() {
+async function getProjects(): Promise<Project[]> {
+  return await client.fetch(projectsQuery);
+}
+
+export default async function Home() {
+  const projects = await getProjects();
+
+
+  const socialLinks = [
+    { text: '@jakedcl on instagram', link: 'https://instagram.com/jakedcl' },
+    { text: '@bannquet on instagram', link: 'https://instagram.com/bannquet' },
+    { text: '@jakedcl on youtube', link: 'https://youtube.com/@jakedcl' },
+    { text: '@jacobdcl on github', link: 'https://github.com/jacobdcl' },
+    { text: '@jacobdcl on linkedin', link: 'https://linkedin.com/in/jacobdcl' },
+  ];
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-white flex" style={{backgroundColor: '#ffffff'}}>
+      {/* Fixed Gradient Sidebar - Smaller */}
+      <nav className="fixed left-0 top-0 h-full w-28 bg-gradient-to-b from-red-500 to-yellow-400 hidden md:flex flex-col justify-center items-center z-50 shadow-lg">
+        <div className="w-20 h-20 flex items-center justify-center mb-8 rounded-xl transition-all duration-300 hover:scale-110">
+          <img src="/icons/home.png" alt="Home" className="w-18 h-18 object-contain" />
         </div>
+        <div className="w-20 h-20 flex items-center justify-center mb-8 rounded-xl transition-all duration-300 hover:scale-110">
+          <img src="/icons/web.png" alt="Web Dev" className="w-18 h-18 object-contain" />
+        </div>
+        <div className="w-20 h-20 flex items-center justify-center mb-8 rounded-xl transition-all duration-300 hover:scale-110">
+          <img src="/icons/maps.png" alt="Maps" className="w-18 h-18 object-contain" />
+        </div>
+        <div className="w-20 h-20 flex items-center justify-center mb-8 rounded-xl transition-all duration-300 hover:scale-110">
+          <img src="/icons/media.png" alt="Media" className="w-18 h-18 object-contain" />
+        </div>
+        <div className="w-20 h-20 flex items-center justify-center mb-8 rounded-xl transition-all duration-300 hover:scale-110">
+          <img src="/icons/blog.png" alt="Blog" className="w-18 h-18 object-contain" />
+        </div>
+      </nav>
+
+      {/* Main Content - Adjusted for smaller sidebar */}
+      <main className="flex-1 ml-0 md:ml-28 relative">
+        {/* Top right corner text */}
+        <div className="absolute top-4 right-4 text-gray-400 text-sm font-medium">
+          jakedcl
+        </div>
+        {/* Home Section */}
+        <section className="flex flex-col justify-center p-6 backdrop-blur-sm border border-gray-200/30 rounded-2xl m-8" style={{backgroundColor: '#f0f0f0', boxShadow: '0 0 20px rgba(0, 0, 0, 0.3)'}}>
+          <h1 className="text-3xl font-bold text-black mb-6">welcome, look around</h1>
+          <div className="space-y-3 mb-6">
+            {socialLinks.map((item, index) => (
+              <a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-base text-black hover:text-gray-600 transition-colors"
+              >
+                {item.text}
+              </a>
+            ))}
+          </div>
+          {/* 3D Object placeholder */}
+          <div className="w-72 h-72 bg-gray-100 rounded-xl flex items-center justify-center shadow-inner">
+            <span className="text-gray-400 text-base">3D Model Coming Soon</span>
+          </div>
+        </section>
+
+        {/* Web Dev Section */}
+        <section className="p-6 backdrop-blur-sm border border-gray-200/30 rounded-2xl m-8" style={{backgroundColor: '#f0f0f0', boxShadow: '0 0 20px rgba(0, 0, 0, 0.3)'}}>
+          <h2 className="text-2xl font-bold text-black mb-6">🌐 web dev</h2>
+          <div className="flex overflow-x-auto gap-6 pb-4">
+            {projects.map((project) => (
+              <div key={project._id} className="flex-shrink-0 w-80">
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block hover:opacity-90 transition-opacity duration-200"
+                  >
+                    {/* Photo Carousel */}
+                    <div className="w-full h-48 bg-gray-100 rounded-xl mb-3 overflow-hidden">
+                      {project.photos && project.photos.length > 0 ? (
+                        <Image
+                          src={project.photos[0].asset.url}
+                          alt={project.photos[0].alt || 'Project image'}
+                          width={320}
+                          height={192}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-gray-400">
+                          No image
+                        </div>
+                      )}
+                    </div>
+                    {/* Title */}
+                    <div className="text-left">
+                      <PortableText 
+                        value={project.title} 
+                        components={{
+                          block: {
+                            normal: ({children}) => <span className="text-base font-medium text-black">{children}</span>,
+                            h1: ({children}) => <span className="text-lg font-bold text-black">{children}</span>,
+                            h2: ({children}) => <span className="text-base font-bold text-black">{children}</span>,
+                            h3: ({children}) => <span className="text-base font-semibold text-black">{children}</span>,
+                          }
+                        }}
+                      />
+                    </div>
+                  </a>
+                ) : (
+                  <div>
+                    {/* Photo Carousel */}
+                    <div className="w-full h-48 bg-gray-100 rounded-xl mb-3 overflow-hidden">
+                      {project.photos && project.photos.length > 0 ? (
+                        <Image
+                          src={project.photos[0].asset.url}
+                          alt={project.photos[0].alt || 'Project image'}
+                          width={320}
+                          height={192}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-gray-400">
+                          No image
+                        </div>
+                      )}
+                    </div>
+                    {/* Title */}
+                    <div className="text-left">
+                      <PortableText 
+                        value={project.title} 
+                        components={{
+                          block: {
+                            normal: ({children}) => <span className="text-base font-medium text-black">{children}</span>,
+                            h1: ({children}) => <span className="text-lg font-bold text-black">{children}</span>,
+                            h2: ({children}) => <span className="text-base font-bold text-black">{children}</span>,
+                            h3: ({children}) => <span className="text-base font-semibold text-black">{children}</span>,
+                          }
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      {/* Mobile Bottom Navigation - Larger */}
+      <nav className="fixed bottom-0 left-0 right-0 h-24 bg-gradient-to-r from-orange-500 to-red-500 flex justify-around items-center z-50 md:hidden">
+        <div className="w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300">
+          <img src="/icons/home.png" alt="Home" className="w-15 h-15 object-contain" />
+        </div>
+        <div className="w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300">
+          <img src="/icons/web.png" alt="Web Dev" className="w-15 h-15 object-contain" />
+        </div>
+        <div className="w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300">
+          <img src="/icons/maps.png" alt="Maps" className="w-15 h-15 object-contain" />
+        </div>
+        <div className="w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300">
+          <img src="/icons/media.png" alt="Media" className="w-15 h-15 object-contain" />
+        </div>
+        <div className="w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300">
+          <img src="/icons/blog.png" alt="Blog" className="w-15 h-15 object-contain" />
+        </div>
+      </nav>
     </div>
   );
 }
