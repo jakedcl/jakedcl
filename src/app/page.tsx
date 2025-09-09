@@ -25,9 +25,6 @@ export default async function Home() {
       {/* Fixed Gradient Sidebar - Smaller */}
       <nav className="fixed left-0 top-0 h-full w-28 bg-gradient-to-b from-red-500 to-yellow-400 hidden md:flex flex-col justify-center items-center z-50 shadow-lg">
         <div className="w-20 h-20 flex items-center justify-center mb-8 rounded-xl transition-all duration-300 hover:scale-110">
-          <Image src="/icons/home.png" alt="Home" width={72} height={72} className="w-18 h-18 object-contain" />
-        </div>
-        <div className="w-20 h-20 flex items-center justify-center mb-8 rounded-xl transition-all duration-300 hover:scale-110">
           <Image src="/icons/web.png" alt="Web Dev" width={72} height={72} className="w-18 h-18 object-contain" />
         </div>
         <div className="w-20 h-20 flex items-center justify-center mb-8 rounded-xl transition-all duration-300 hover:scale-110">
@@ -35,9 +32,6 @@ export default async function Home() {
         </div>
         <div className="w-20 h-20 flex items-center justify-center mb-8 rounded-xl transition-all duration-300 hover:scale-110">
           <Image src="/icons/media.png" alt="Media" width={72} height={72} className="w-18 h-18 object-contain" />
-        </div>
-        <div className="w-20 h-20 flex items-center justify-center mb-8 rounded-xl transition-all duration-300 hover:scale-110">
-          <Image src="/icons/blog.png" alt="Blog" width={72} height={72} className="w-18 h-18 object-contain" />
         </div>
       </nav>
 
@@ -157,9 +151,6 @@ export default async function Home() {
       {/* Mobile Bottom Navigation - Larger */}
       <nav className="fixed bottom-0 left-0 right-0 h-24 bg-gradient-to-r from-orange-500 to-red-500 flex justify-around items-center z-50 md:hidden">
         <div className="w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300">
-          <Image src="/icons/home.png" alt="Home" width={60} height={60} className="w-15 h-15 object-contain" />
-        </div>
-        <div className="w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300">
           <Image src="/icons/web.png" alt="Web Dev" width={60} height={60} className="w-15 h-15 object-contain" />
         </div>
         <div className="w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300">
@@ -167,9 +158,6 @@ export default async function Home() {
         </div>
         <div className="w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300">
           <Image src="/icons/media.png" alt="Media" width={60} height={60} className="w-15 h-15 object-contain" />
-        </div>
-        <div className="w-16 h-16 flex items-center justify-center rounded-xl transition-all duration-300">
-          <Image src="/icons/blog.png" alt="Blog" width={60} height={60} className="w-15 h-15 object-contain" />
         </div>
       </nav>
     </div>
