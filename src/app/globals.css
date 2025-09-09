@@ -63,3 +63,22 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* Hide scrollbar for cleaner look */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+/* Scroll indicator styles */
+.scroll-indicator {
+  /* Removed pulsing animation */
+}
+
+/* Gradient fade effect */
+.gradient-fade {
+  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%);
+}
