@@ -9,8 +9,8 @@ Right now I'm freelancing, and I'm looking for a full-time developer or IT role.
 ### Selected work
 
 - [logiparty](https://github.com/jakedcl/logiparty): multi-tenant app for logistics companies that run events, with row-level security in Postgres
-- [metrotapes](https://github.com/jakedcl/metrotapes): a portfolio site built as a subway station you move through, in Three.js
-- [drewdella](https://github.com/jakedcl/drewdella): an artist site that looks like a Google results page
+- [metrotapes](https://github.com/dcl-development/metrotapes): a portfolio site built as a subway station you move through, in Three.js
+- [drewdella](https://github.com/dcl-development/drewdella): an artist site that looks like a Google results page
 - [bannquet](https://github.com/jakedcl/bannquet): mountain weather and trip reports for the Northeast
 - [compactpickup](https://github.com/jakedcl/compactpickup): a VHS-styled catalog of compact pickup trucks
 
